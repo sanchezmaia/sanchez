@@ -1,0 +1,25 @@
+function sendMail() {
+  var params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    address: document.getElementById("address").value,
+    phone: document.getElementById("phone").value,
+    message: document.getElementById("message").value,
+  };
+
+  const serviceID = "service_fjbd3kb";
+  const templateID = "template_ssdsfkb";
+
+  emailjs
+    .send(serviceID, templateID, params)
+    .then((res) => {
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("address").value = "";
+      document.getElementById("phone").value = "";
+      document.getElementById("message").value = "";
+      console.log(res);
+      alert("Ita Nia Menssagem Haruka ho Sucessu!");
+    })
+    .catch((err) => console.log(err));
+}
